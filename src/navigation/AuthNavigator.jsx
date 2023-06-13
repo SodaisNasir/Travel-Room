@@ -3,9 +3,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import CreateAccount from '../screens/auth/CreateAccount';
 import SplashOne from '../screens/Splash/SplashOne';
-import Shop from '../screens/HomeScreens/Shop';
+import Shop from '../screens/HomeScreens/Shop/Shop';
 import SplashTwo from '../screens/Splash/SplashTwo';
 import SplashThree from '../screens/Splash/SplashThree';
+import BottomNavigator from './BottomNavigator';
+import ZoneContent from '../components/content/ZoneContent';
+import CountryContent from '../components/content/CountryContent';
+import Payment from '../screens/HomeScreens/Payment/Payment';
+import CardsContent from '../components/content/CardsContent';
 
 
 const AuthNavigator = () => {
@@ -14,13 +19,18 @@ const AuthNavigator = () => {
         <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="splashone">
+          initialRouteName="payment">
 
 <Stack.Screen name="createaccount" component={CreateAccount} />
 <Stack.Screen name="splashone" component={SplashOne} />
 <Stack.Screen name="splashtwo" component={SplashTwo} />
 <Stack.Screen name="splashthree" component={SplashThree} />
 <Stack.Screen name="shop" component={Shop} />
+<Stack.Screen name="payment" component={Payment} />
+<Stack.Screen name="CardsContent" component={CardsContent} />
+<Stack.Screen name="zonecontent" component={ZoneContent} />
+<Stack.Screen name="countrycontent" component={CountryContent} />
+<Stack.Screen name="BottomNavigator" component={BottomNavigator} />
 
 
           

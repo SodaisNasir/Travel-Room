@@ -1,6 +1,6 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Colors} from '../utils/colors';
+import {Colors} from '../../utils/colors';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 
 const Header = props => {
@@ -19,7 +19,7 @@ const Header = props => {
             }}>
             <Image
               style={{height: '100%', width: '100%'}}
-              source={require('../assets/images/travelicon.png')}
+              source={require('../../assets/images/travelicon.png')}
               resizeMode="contain"
             />
           </View>
@@ -41,7 +41,7 @@ const Header = props => {
             }}>
             <Image
               style={{height: '100%', width: '100%'}}
-              source={require('../assets/images/cross_icon.png')}
+              source={require('../../assets/images/cross_icon.png')}
               resizeMode="contain"
             />
           </View>

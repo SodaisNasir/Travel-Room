@@ -7,6 +7,8 @@ export const Colors ={
     InputText : '#BCBEBF',
     placeholderTextColor: '#E3E4E7',
     Grey: '#919191',
+    BoxBorder : '#cfd1d1',
+    GreyText : '#b3b5b7'
 
 
 

@@ -173,7 +173,8 @@ const styles = StyleSheet.create({
     height: 55,
     width: 100,
     borderColor:'red',
-    borderWidth:1
+    borderWidth:1,
+
 
   }
 });
