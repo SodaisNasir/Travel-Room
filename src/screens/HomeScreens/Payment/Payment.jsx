@@ -7,12 +7,25 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { Colors } from '../../../utils/colors';
 import { Font } from '../../../utils/fonts';
 
-const Payment = () => {
+const Payment = (props) => {
   const [menu, setMenu] = useState('cards');
   return (
-    <SafeAreaView>
-      <NotificationHeader />
+    <SafeAreaView style={{backgroundColor:Colors.White,flex:1}}>
+      <NotificationHeader RestyleHeader={{backgroundColor:Colors.Black }} />
       <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={[props.restyleUpperBox, { flexDirection: 'row', overflow: 'hidden',backgroundColor:Colors.Black, height: verticalScale(20) }]}>
+        <View
+          style={{
+            overflow: 'hidden',
+            height: verticalScale(25),
+            width: '96%',
+            backgroundColor: Colors.White,
+          }}></View>
+        <View style={[styles.triangle]}>
+
+        </View>
+      </View>
+
         <View style={styles.mainContainer}>
           <View
             style={[
@@ -70,15 +83,16 @@ const Payment = () => {
           </View>
           {menu == 'payments' ? (
             <>
-              <View style={{ marginVertical: verticalScale(15) }}>
-                {/* <Text style={styles.PopDes}>Popular Destinations</Text> */}
+
+              <View style={{ marginVertical: verticalScale(15), flex: 1 }}>
+
               </View>
 
               <PaymentContent />
             </>
           ) : (
             <>
-              <View style={{ marginTop:verticalScale(50)}} />
+              <View style={{ marginTop: verticalScale(50) }} />
 
               <View style={{}}>
                 <CardsContent />
@@ -90,6 +104,7 @@ const Payment = () => {
             </>
           )}
         </View>
+        <View style={{height:verticalScale(40)}}/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -99,11 +114,23 @@ export default Payment;
 
 const styles = StyleSheet.create({
 
+  triangle: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 25,
+    borderTopWidth: 25,
+    borderRightColor: 'transparent',
+    borderTopColor: Colors.White,
+    transform: [{ rotate: '270deg' }],
+  },
+
   mainContainer: {
     paddingHorizontal: moderateScale(25),
-    borderTopWidth: 1,
-    borderTopLeftRadius: scale(4),
-    borderTopRightRadius: scale(10),
+    // borderTopWidth: 1,
+    // borderTopLeftRadius: scale(4),
+    // borderTopRightRadius: scale(10),
     // shadowColor: "#000",
     // shadowOffset: {
     //   width: 0,
@@ -133,4 +160,9 @@ const styles = StyleSheet.create({
     height: verticalScale(40),
     borderRadius: scale(4),
   },
+  PaymentDate: {
+    fontFamily: Font.CamptonBook,
+    fontSize: scale(18),
+    color: Colors.Black,
+  }
 });
