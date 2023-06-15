@@ -6,26 +6,15 @@ import PaymentContent from '../../../components/content/PaymentsContent';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { Colors } from '../../../utils/colors';
 import { Font } from '../../../utils/fonts';
+import UpperBox from '../../../components/box/UpperBox';
 
 const Payment = (props) => {
   const [menu, setMenu] = useState('cards');
   return (
-    <SafeAreaView style={{backgroundColor:Colors.White,flex:1}}>
-      <NotificationHeader RestyleHeader={{backgroundColor:Colors.Black }} />
+    <SafeAreaView style={{ backgroundColor: Colors.White, flex: 1 }}>
+      <NotificationHeader RestyleHeader={{ backgroundColor: Colors.Black }} />
       <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={[props.restyleUpperBox, { flexDirection: 'row', overflow: 'hidden',backgroundColor:Colors.Black, height: verticalScale(20) }]}>
-        <View
-          style={{
-            overflow: 'hidden',
-            height: verticalScale(25),
-            width: '96%',
-            backgroundColor: Colors.White,
-          }}></View>
-        <View style={[styles.triangle]}>
-
-        </View>
-      </View>
-
+        <UpperBox/>
         <View style={styles.mainContainer}>
           <View
             style={[
@@ -104,7 +93,7 @@ const Payment = (props) => {
             </>
           )}
         </View>
-        <View style={{height:verticalScale(40)}}/>
+        <View style={{ height: verticalScale(40) }} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -114,17 +103,7 @@ export default Payment;
 
 const styles = StyleSheet.create({
 
-  triangle: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 25,
-    borderTopWidth: 25,
-    borderRightColor: 'transparent',
-    borderTopColor: Colors.White,
-    transform: [{ rotate: '270deg' }],
-  },
+ 
 
   mainContainer: {
     paddingHorizontal: moderateScale(25),

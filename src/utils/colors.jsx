@@ -8,7 +8,8 @@ export const Colors ={
     placeholderTextColor: '#E3E4E7',
     Grey: '#919191',
     BoxBorder : '#cfd1d1',
-    GreyText : '#b3b5b7'
+    GreyText : '#b3b5b7',
+    IntroductoryBox : '#ff6969'
 
 
 

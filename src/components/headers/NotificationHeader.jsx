@@ -5,7 +5,7 @@ import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 
 const NotificationHeader = (props) => {
   return (
-    <View style={[props.RestyleHeader,{ height: verticalScale(80) }]}>
+    <View style={[props.RestyleHeader,{ height: verticalScale(95) }]}>
       <View style={{ flexDirection: 'row',justifyContent:'space-between',paddingHorizontal:moderateScale(20) }}>
         <View style={{  }}>
           <View

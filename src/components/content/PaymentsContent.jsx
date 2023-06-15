@@ -57,14 +57,15 @@ const PaymentContent = () => {
           {data.date}
         </Text>
       </View>
-      <StyledBox>
-        <View style={{ flex: 1 }}>
+      <StyledBox >
+        <View style={{ flex: 1,  bottom:scale(10),justifyContent:'flex-start'}}>
           <View
             style={{
-              marginTop: verticalScale(10),
+              // marginTop: verticalScale(10),
               flexDirection: 'row',
               marginLeft: moderateScale(5),
               justifyContent: 'space-between',
+         
             }}>
             <Text style={styles.title}>{data.country}</Text>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>

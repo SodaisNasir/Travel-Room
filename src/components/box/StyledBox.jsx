@@ -1,41 +1,48 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
-import { Colors } from '../../utils/colors';
-import { Font } from '../../utils/fonts';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import {Colors} from '../../utils/colors';
+import {Font} from '../../utils/fonts';
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
-const StyledBox = (props) => {
+const StyledBox = props => {
   return (
-    <View style={{}}>
-      <View style={[props.restyleUpperBox, { flexDirection: 'row', overflow: 'hidden', height: verticalScale(20) }]}>
-        <View
-          style={{
+    <View style={props.Main}>
+      <View
+        style={[
+          {
+            flexDirection: 'row',
             overflow: 'hidden',
-            height: verticalScale(25),
-            width: '96%',
-            backgroundColor: Colors.InputColor,
-          }}></View>
-        <View style={[styles.triangle]}>
-
-        </View>
+            height: verticalScale(20),
+            // width: '100%',
+          },
+          props.CurveSize,
+        ]}>
+        <View
+          style={[
+            {
+              overflow: 'hidden',
+              height: verticalScale(25),
+              width: '96%',
+              backgroundColor: Colors.InputColor,
+              borderTopLeftRadius: scale(6),
+            },
+            props.UpperInnerBox,
+          ]}></View>
+        <View style={[styles.triangle, props.Triangle]}></View>
       </View>
 
       <View
         style={[
-          props.RestyleMainBox
-          ,{
-          height: verticalScale(85),
-          width: '100%',
-          backgroundColor: Colors.InputColor,
-          // alignItems: 'center',
-          paddingHorizontal: moderateScale(10),
-          // flexDirection: 'row',
-          // marginVertical: verticalScale(10),
-          // alignSelf: 'center',
-
-
-        }]}>
-      {props.children}
+          {
+            height: verticalScale(190),
+            width: '100%',
+            backgroundColor: Colors.InputColor,
+            paddingHorizontal: moderateScale(10),
+            borderBottomLeftRadius: scale(6),
+          },
+          props.RestyleMainBox,
+        ]}>
+        {props.children}
       </View>
     </View>
   );
@@ -53,7 +60,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 25,
     borderRightColor: 'transparent',
     borderTopColor: Colors.InputColor,
-    transform: [{ rotate: '270deg' }],
+    transform: [{rotate: '270deg'}],
   },
 
   title: {
@@ -71,6 +78,4 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
     color: Colors.Black,
   },
-
-
 });

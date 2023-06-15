@@ -11,6 +11,9 @@ import ZoneContent from '../components/content/ZoneContent';
 import CountryContent from '../components/content/CountryContent';
 import Payment from '../screens/HomeScreens/Payment/Payment';
 import CardsContent from '../components/content/CardsContent';
+import ViewAllContent from '../components/content/ViewAllContent';
+import ViewAllCountries from '../screens/HomeScreens/Shop/ViewAllCountries';
+import Bundle from '../screens/HomeScreens/Bundle/Bundle';
 
 
 const AuthNavigator = () => {
@@ -19,7 +22,7 @@ const AuthNavigator = () => {
         <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="payment">
+          initialRouteName="bundle">
 
 <Stack.Screen name="createaccount" component={CreateAccount} />
 <Stack.Screen name="splashone" component={SplashOne} />
@@ -31,8 +34,9 @@ const AuthNavigator = () => {
 <Stack.Screen name="zonecontent" component={ZoneContent} />
 <Stack.Screen name="countrycontent" component={CountryContent} />
 <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
-
-
+<Stack.Screen name="ViewAllContent" component={ViewAllContent} />
+<Stack.Screen name="viewallcountries" component={ViewAllCountries} />
+<Stack.Screen name="bundle" component={Bundle} />
           
 
         </Stack.Navigator>
