@@ -6,7 +6,7 @@ import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
 const StyledBox = props => {
   return (
-    <View style={props.Main}>
+    <View style={[props.Main]}>
       <View
         style={[
           {
@@ -39,6 +39,7 @@ const StyledBox = props => {
             backgroundColor: Colors.InputColor,
             paddingHorizontal: moderateScale(10),
             borderBottomLeftRadius: scale(6),
+            borderBottomRightRadius: scale(6)
           },
           props.RestyleMainBox,
         ]}>

@@ -9,7 +9,9 @@ export const Colors ={
     Grey: '#919191',
     BoxBorder : '#cfd1d1',
     GreyText : '#b3b5b7',
-    IntroductoryBox : '#ff6969'
+    IntroductoryBox : '#ff6969',
+    ProgressColor : '#dbdcdd',
+    ProgressColorBorder : '#c7bebe'
 
 
 

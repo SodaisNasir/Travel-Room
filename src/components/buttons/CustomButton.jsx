@@ -8,7 +8,7 @@ import { Font } from '../../utils/fonts';
 const CustomButton = (props) => {
   return (
     <TouchableOpacity onPress={props.onPress} style={[styles.containerStyle,props.containerRestyle]}>
-      <Text style={styles.font}>{props.text}</Text>
+      <Text style={[styles.font,props.fontStyle]}>{props.text}</Text>
     </TouchableOpacity>
   );
 };
