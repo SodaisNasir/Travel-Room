@@ -195,42 +195,10 @@ const ActiveBundleContent = () => {
         />
       </View>
 
-      <StyledBox 
-       RestyleMainBox={{
-        height: verticalScale(125),
-        paddingHorizontal: moderateScale(20),
-        borderBottomLeftRadius: scale(6),
-        borderBottomRightRadius: scale(6),
-        backgroundColor:Colors.Main
-      }}
-      UpperInnerBox = {{backgroundColor:Colors.Main}}
-      Triangle = {{borderTopColor: Colors.Main,}}
-      >
-        <View style={{bottom:scale(5)}}>
-        <Text style = {{fontFamily:Font.Campton700, fontSize:scale(20),color:Colors.White}}>
-          TravelRoom (even) easier!
-        </Text>
-
-        <View style={{marginTop:verticalScale(12)}}>
-        <Text style={{fontFamily:Font.Campton500, fontSize:scale(14),color:Colors.White}}>
-          Add an extra bundle now
-        </Text>
-        </View>
-
-        <View style={{marginVertical:verticalScale(13)}}>
-          <CustomButton
-            containerRestyle = {{width:'100%',backgroundColor:Colors.White,height:verticalScale(45)}}
-            fontStyle = {{color:Colors.Main,fontSize:scale(18)}}
-            text = {'Get a data'}
-          />
-        </View>
-       
-
-        </View>
         
-      </StyledBox>
+    
 
-      <View style={{height:verticalScale(40)}}/>
+
     </View>
   );
 };

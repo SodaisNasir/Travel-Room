@@ -64,19 +64,19 @@ const styles = StyleSheet.create({
     transform: [{rotate: '270deg'}],
   },
 
-  title: {
-    fontFamily: Font.Campton700,
-    fontSize: scale(18),
-    color: Colors.Main,
-  },
-  date: {
-    fontFamily: Font.CamptonBook,
-    fontSize: scale(16),
-    color: Colors.Black,
-  },
-  amount: {
-    fontFamily: Font.CamptonBook,
-    fontSize: scale(16),
-    color: Colors.Black,
-  },
+  // title: {
+  //   fontFamily: Font.Campton700,
+  //   fontSize: scale(18),
+  //   color: Colors.Main,
+  // },
+  // date: {
+  //   fontFamily: Font.CamptonBook,
+  //   fontSize: scale(16),
+  //   color: Colors.Black,
+  // },
+  // amount: {
+  //   fontFamily: Font.CamptonBook,
+  //   fontSize: scale(16),
+  //   color: Colors.Black,
+  // },
 });

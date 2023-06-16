@@ -14,6 +14,7 @@ import CardsContent from '../components/content/CardsContent';
 import ViewAllContent from '../components/content/ViewAllContent';
 import ViewAllCountries from '../screens/HomeScreens/Shop/ViewAllCountries';
 import Bundle from '../screens/HomeScreens/Bundle/Bundle';
+import PaymentMain from '../screens/HomeScreens/Payment/PaymentMain';
 
 
 const AuthNavigator = () => {
@@ -22,7 +23,7 @@ const AuthNavigator = () => {
         <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="bundle">
+          initialRouteName="paymentmain">
 
 <Stack.Screen name="createaccount" component={CreateAccount} />
 <Stack.Screen name="splashone" component={SplashOne} />
@@ -37,7 +38,7 @@ const AuthNavigator = () => {
 <Stack.Screen name="ViewAllContent" component={ViewAllContent} />
 <Stack.Screen name="viewallcountries" component={ViewAllCountries} />
 <Stack.Screen name="bundle" component={Bundle} />
-          
+<Stack.Screen name="paymentmain" component={PaymentMain} />
 
         </Stack.Navigator>
         </NavigationContainer>

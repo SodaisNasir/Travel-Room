@@ -36,7 +36,7 @@ const NotificationHeader = (props) => {
           }}>
           <View
             style={{
-              height: verticalScale(25),
+              height: verticalScale(30),
               width: scale(50),
 
               alignItems: 'flex-end',

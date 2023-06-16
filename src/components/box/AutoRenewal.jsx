@@ -30,8 +30,8 @@ export default AutoRenewal;
 const styles = StyleSheet.create({
   RedBox: {
     height: verticalScale(140),
+    marginBottom:verticalScale(10),
     backgroundColor: Colors.Main,
-    marginBottom: verticalScale(15),
     paddingVertical: verticalScale(10),
     paddingHorizontal: moderateScale(20),
     borderBottomLeftRadius:scale(6),
