@@ -106,7 +106,7 @@ const ActiveBundleContent = () => {
             transform: [{rotate: '180deg'}],
           }}>
           <Progress.Bar
-            borderRadius={scale(10)}
+            borderRadius={scale(5)}
             style={{marginTop: verticalScale(5)}}
             progress={0.7}
             animated={true}
