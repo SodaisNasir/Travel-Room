@@ -34,7 +34,7 @@ const StyledBox = props => {
       <View
         style={[
           {
-            height: verticalScale(190),
+            // height: verticalScale(190),
             width: '100%',
             backgroundColor: Colors.InputColor,
             paddingHorizontal: moderateScale(10),

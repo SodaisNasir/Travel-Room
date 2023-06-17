@@ -29,14 +29,14 @@ const PaymentMain = () => {
   return (
     <SafeAreaView style={{backgroundColor: Colors.White, flex: 1}}>
       <PaymentHeader restyleHeader={{backgroundColor: Colors.Black}} />
-      <View style={{backgroundColor:'red'}}>
+      <View style={{}}>
         <UpperBox restyleUpperBox={{backgroundColor: Colors.Black}} />
-        <View style={{alignItems: 'center',position:'absolute',bottom:0,alignSelf:'center'}}>
+        <View style={{left:'45%',alignItems: 'center',position:'absolute',bottom:0,alignSelf:'center',}}>
           <StyledBox
             CurveSize={{height: verticalScale(15)}}
             UpperInnerBox={{
               backgroundColor: Colors.Main,
-              width: scale(26),
+              width: scale(22),
             }}
             RestyleMainBox={{
               height: verticalScale(25),
@@ -46,7 +46,7 @@ const PaymentMain = () => {
               borderBottomLeftRadius: scale(4),
               borderBottomRightRadius: scale(4),
               backgroundColor: Colors.Main,
-              width: scale(40),
+              width: scale(36),
             }}
             Triangle={{borderTopColor: Colors.Main}}></StyledBox>
         </View>
@@ -149,10 +149,10 @@ const PaymentMain = () => {
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}>
                 <StyledBox
-                  CurveSize={{height: verticalScale(15)}}
+                  CurveSize={{height: verticalScale(14)}}
                   UpperInnerBox={{
                     backgroundColor: Colors.Main,
-                    width: scale(61.2),
+                    width: scale(62),
                   }}
                   RestyleMainBox={{
                     height: verticalScale(65),

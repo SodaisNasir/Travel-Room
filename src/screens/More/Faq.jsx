@@ -15,6 +15,7 @@ import {Colors} from '../../utils/colors';
 import NotificationHeader from '../../components/headers/NotificationHeader';
 import {Font} from '../../utils/fonts';
 import StyledBox from '../../components/box/StyledBox';
+import CustomButton from '../../components/buttons/CustomButton';
 
 DATA = [
   {
@@ -58,7 +59,7 @@ DATA = [
 
 const Faq = ({navigation}) => {
   const [expanded1, setExpanded1] = useState();
-  const [close, setClose] = useState()
+  const [close, setClose] = useState();
 
   //     navigation.getParent()?.setOptions({
   //       tabBarStyle: {
@@ -67,18 +68,17 @@ const Faq = ({navigation}) => {
   //     });
   //   }, []);
 
-  const handlePress1 = (id) => {
-if (expanded1 == id) {
-    setExpanded1()
-} else {
-    setExpanded1(id)
-}
-    
+  const handlePress1 = id => {
+    if (expanded1 == id) {
+      setExpanded1();
+    } else {
+      setExpanded1(id);
+    }
   };
 
   const Item = ({data}) => (
     <View style={{marginVertical: verticalScale(10)}}>
-      <TouchableOpacity onPress={()=> handlePress1(data.id)}>
+      <View>
         <StyledBox
           CurveSize={{height: verticalScale(15)}}
           UpperInnerBox={{
@@ -86,10 +86,9 @@ if (expanded1 == id) {
             width: '96%',
           }}
           RestyleMainBox={{
-            height: verticalScale(45),
+            // height: verticalScale(45),
             //   paddingHorizontal: moderateScale(20),
             paddingBottom: moderateScale(5),
-
             borderBottomLeftRadius: scale(4),
             borderBottomRightRadius: scale(4),
             backgroundColor: Colors.InputColor,
@@ -100,10 +99,10 @@ if (expanded1 == id) {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-            
-              
+              flex: 1,
+
             }}>
-            <View style={{alignSelf:'center'}}>
+            <View style={{alignSelf: 'center',bottom:scale(3)}}>
               <Text
                 style={{
                   fontFamily: Font.CamptonBook,
@@ -114,12 +113,12 @@ if (expanded1 == id) {
               </Text>
             </View>
 
-            <View style={{backgroundColor:'green',width:20}}>
-
-            </View>
+            <TouchableOpacity
+              onPress={() => handlePress1(data.id)}
+              style={{ flex: 1,bottom:scale(3)}}></TouchableOpacity>
           </View>
         </StyledBox>
-      </TouchableOpacity>
+      </View>
       {expanded1 == data.id && (
         <View
           style={{
@@ -142,13 +141,15 @@ if (expanded1 == id) {
   );
 
   return (
-    <>
-      <SafeAreaView style={{backgroundColor: Colors.White}} />
-      <View style={{flex: 1, backgroundColor: Colors.White}}>
-        <NotificationHeader RestyleHeader={{backgroundColor: Colors.Black}} />
+    <SafeAreaView style={{flex: 1, backgroundColor: Colors.White}}>
+      <NotificationHeader RestyleHeader={{backgroundColor: Colors.Black}} />
 
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={[styles.MainBox]}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={[styles.MainBox]}>
+          <View style={{marginTop:verticalScale(20),marginBottom:verticalScale(5)}} >
+            <Text style={styles.MainHeading}>FAQ</Text>
+          </View>
+          <View>
             <FlatList
               scrollEnabled={true}
               showsVerticalScrollIndicator={false}
@@ -157,9 +158,13 @@ if (expanded1 == id) {
               keyExtractor={item => item.id}
             />
           </View>
-        </ScrollView>
-      </View>
-    </>
+
+          <View style={{marginVertical: verticalScale(15)}}>
+            <CustomButton onPress={()=>navigation.goBack()} text={'Back'} containerRestyle={{width: '80%'}} />
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -167,6 +172,12 @@ const styles = StyleSheet.create({
   MainBox: {
     paddingHorizontal: moderateScale(25),
   },
+
+  MainHeading:{
+    fontFamily:Font.CamptonBook,
+    fontSize:scale(32),
+    color: Colors.Black
+  }
 });
 
 export default Faq;
