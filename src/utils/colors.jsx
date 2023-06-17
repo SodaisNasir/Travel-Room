@@ -11,7 +11,8 @@ export const Colors ={
     GreyText : '#b3b5b7',
     IntroductoryBox : '#ff6969',
     ProgressColor : '#dbdcdd',
-    ProgressColorBorder : '#c7bebe'
+    ProgressColorBorder : '#c7bebe',
+    NotActiveBox : '#c9c9c9'
 
 
 

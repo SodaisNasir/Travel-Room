@@ -17,35 +17,39 @@ import Bundle from '../screens/HomeScreens/Bundle/Bundle';
 import PaymentMain from '../screens/HomeScreens/Payment/PaymentMain';
 import Faq from '../screens/More/Faq';
 import PlanDetails from '../screens/HomeScreens/Payment/PlanDetails';
-
+import HomeNoContent from '../screens/HomeScreens/Home/HomeNoContent';
+import HomeCurrentBundle from '../components/content/HomeCurrentBundle';
+import HomeOne from '../screens/HomeScreens/Home/HomeOne';
 
 const AuthNavigator = () => {
-    const Stack = createNativeStackNavigator();
-    return (
-        <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{headerShown: false}}
-          initialRouteName="plandetails">
+  const Stack = createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName="HomeOne">
+        <Stack.Screen name="createaccount" component={CreateAccount} />
+        <Stack.Screen name="splashone" component={SplashOne} />
+        <Stack.Screen name="splashtwo" component={SplashTwo} />
+        <Stack.Screen name="splashthree" component={SplashThree} />
+        <Stack.Screen name="shop" component={Shop} />
+        <Stack.Screen name="payment" component={Payment} />
+        <Stack.Screen name="CardsContent" component={CardsContent} />
+        <Stack.Screen name="zonecontent" component={ZoneContent} />
+        <Stack.Screen name="countrycontent" component={CountryContent} />
+        <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
+        <Stack.Screen name="ViewAllContent" component={ViewAllContent} />
+        <Stack.Screen name="viewallcountries" component={ViewAllCountries} />
+        <Stack.Screen name="bundle" component={Bundle} />
+        <Stack.Screen name="paymentmain" component={PaymentMain} />
+        <Stack.Screen name="faq" component={Faq} />
+        <Stack.Screen name="plandetails" component={PlanDetails} />
+        <Stack.Screen name="homenocontent" component={HomeNoContent} />
+        <Stack.Screen name="HomeCurrentBundle" component={HomeCurrentBundle} />
+        <Stack.Screen name="HomeOne" component={HomeOne} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-<Stack.Screen name="createaccount" component={CreateAccount} />
-<Stack.Screen name="splashone" component={SplashOne} />
-<Stack.Screen name="splashtwo" component={SplashTwo} />
-<Stack.Screen name="splashthree" component={SplashThree} />
-<Stack.Screen name="shop" component={Shop} />
-<Stack.Screen name="payment" component={Payment} />
-<Stack.Screen name="CardsContent" component={CardsContent} />
-<Stack.Screen name="zonecontent" component={ZoneContent} />
-<Stack.Screen name="countrycontent" component={CountryContent} />
-<Stack.Screen name="BottomNavigator" component={BottomNavigator} />
-<Stack.Screen name="ViewAllContent" component={ViewAllContent} />
-<Stack.Screen name="viewallcountries" component={ViewAllCountries} />
-<Stack.Screen name="bundle" component={Bundle} />
-<Stack.Screen name="paymentmain" component={PaymentMain} />
-<Stack.Screen name="faq" component={Faq} />
-<Stack.Screen name="plandetails" component={PlanDetails} />
-        </Stack.Navigator>
-        </NavigationContainer>
-      );
-    };
-    
-    export default AuthNavigator;
+export default AuthNavigator;

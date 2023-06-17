@@ -8,7 +8,7 @@ const SplashThree = () => {
     return (
         <SafeAreaView style={{ flex: 1,backgroundColor:Colors.Main }}>
             <View style={{ paddingHorizontal: moderateScale(20), flex: 1 }}>
-                <View style={{ flex: 1.5, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flex: 1.1, alignItems: 'center', justifyContent: 'center'}}>
 
 
                     <View style={{ height: verticalScale(140), width: scale(230), marginTop: verticalScale(20) }}>
