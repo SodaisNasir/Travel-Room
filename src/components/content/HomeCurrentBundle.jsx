@@ -22,7 +22,7 @@ const HomeCurrentBundle = () => {
           }}
           UpperInnerBox={
             {
-              width : scale(135)
+              width : scale(136.5)
             }
           }>
           <View style={{flexDirection: 'row'}}>

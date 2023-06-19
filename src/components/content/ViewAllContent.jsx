@@ -1,12 +1,13 @@
 import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import StyledBox from '../box/StyledBox';
 import {Colors} from '../../utils/colors';
 import {moderateScale, verticalScale, scale} from 'react-native-size-matters';
 import {Font} from '../../utils/fonts';
 import CustomButton from '../buttons/CustomButton';
 
-const ViewAllContent = () => {
+const ViewAllContent = props => {
+
   DATA = [
     {
       id: 1,
@@ -25,6 +26,17 @@ const ViewAllContent = () => {
       details: '1 GB . 7 Days',
     },
   ];
+  const [more, setMore] = useState();
+
+  const handlePress = id => {
+    if (more == id) {
+      setMore()
+      
+    } else {
+      
+      setMore(id)
+    }
+  }
   //change paddding
   const Item = ({data}) => (
     <>
@@ -33,12 +45,13 @@ const ViewAllContent = () => {
           flex: 1,
           marginVertical: verticalScale(15),
         }}>
-        <StyledBox  
-        
-     
-        RestyleMainBox={{height:verticalScale(205),paddingHorizontal: moderateScale(20)}}>
-          <View style={{flexDirection: 'row',justifyContent:'space-between'}}>
-            <View style={{justifyContent:'center'}}>
+        <StyledBox
+          RestyleMainBox={{
+            // height: verticalScale(205),
+            paddingHorizontal: moderateScale(20),
+          }}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={{justifyContent: 'center'}}>
               <View style={{height: verticalScale(30), width: scale(30)}}>
                 <Image
                   resizeMode="contain"
@@ -48,11 +61,10 @@ const ViewAllContent = () => {
               </View>
             </View>
 
-            <View style={{left:scale(35)}}>
-            <StyledBox
-
-                Main = {{width:'100%',alignItems:'center'}}
-                CurveSize={{height:verticalScale(15),width:'60%'}}
+            <View style={{left: scale(35)}}>
+              <StyledBox
+                Main={{width: '100%', alignItems: 'center'}}
+                CurveSize={{height: verticalScale(15), width: '60%'}}
                 UpperInnerBox={{
                   width: '87%',
                   backgroundColor: Colors.IntroductoryBox,
@@ -77,10 +89,6 @@ const ViewAllContent = () => {
                 </View>
               </StyledBox>
             </View>
-              
-
-             
-         
           </View>
 
           <View
@@ -131,12 +139,52 @@ const ViewAllContent = () => {
             </View>
           </View>
 
+          { more == data.id && (
+            <View style={{marginVertical : verticalScale(10)}}>
+              <View
+                style={{flexDirection: 'row'}}>
+                <View>
+                  <Text style ={styles.ParaText}>Where can I use this bundle?</Text>
+                </View>
+
+                <View style={{backgroundColor: 'yellow',flex:1}}></View>
+              </View>
+
+              <View style={{marginVertical : verticalScale(15)}}>
+                <View>
+                  <Text style ={styles.BigText}>Activation</Text>
+                </View>
+
+                <View style={{marginTop : verticalScale(10),paddingRight:moderateScale(20)}}> 
+                  <Text style ={styles.ParaText}>
+                    This bundle must be activated within 30 days. Your bundle
+                    will activate automatically once you connect to a network in
+                    a country covered by the bundle.
+                  </Text>
+                </View>
+              </View>
+
+              <View style={{}}>
+                <View >
+                  <Text style ={styles.BigText}>How long is my bundle valid?</Text>
+                </View>
+
+                <View style={{marginTop : verticalScale(10),paddingRight : moderateScale(20)}}> 
+                  <Text style ={styles.ParaText}>
+                    7 days from activation
+                  </Text>
+                </View>
+              </View>
+            </View>
+          )}
+
           <View
             style={{
               flex: 1,
               alignItems: 'center',
               flexDirection: 'row',
-              marginTop: verticalScale(5),
+              // marginTop: verticalScale(5),
+              marginVertical: verticalScale(25),
             }}>
             <CustomButton
               text={'Select'}
@@ -149,6 +197,7 @@ const ViewAllContent = () => {
 
             <CustomButton
               text={'Select'}
+              onPress={() => handlePress(data.id)}
               containerRestyle={{
                 borderRadius: scale(4),
                 width: '22%',
@@ -159,6 +208,8 @@ const ViewAllContent = () => {
               }}
             />
           </View>
+
+        
         </StyledBox>
       </View>
     </>
@@ -173,13 +224,23 @@ const ViewAllContent = () => {
         renderItem={({item}) => <Item data={item} />}
       />
 
-      <View style={{marginTop: 20, marginLeft: 30}}>
-      
-      </View>
+      <View style={{marginTop: verticalScale(20), marginLeft: moderateScale(30)}}></View>
     </View>
   );
 };
 
 export default ViewAllContent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  BigText : {
+    color: Colors.Black,
+    fontFamily : Font.Campton700,
+    fontSize : scale(18)
+    
+  },
+  ParaText : {
+    color: Colors.Black,
+    fontFamily : Font.CamptonBook,
+    fontSize : scale(14),
+  }
+});

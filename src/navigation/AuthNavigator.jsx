@@ -20,6 +20,11 @@ import PlanDetails from '../screens/HomeScreens/Payment/PlanDetails';
 import HomeNoContent from '../screens/HomeScreens/Home/HomeNoContent';
 import HomeCurrentBundle from '../components/content/HomeCurrentBundle';
 import HomeOne from '../screens/HomeScreens/Home/HomeOne';
+import AutoRenewal from '../components/box/AutoRenewal';
+import NotificationSettings from '../screens/More/NotificationSettings';
+import PaymentCardDetails from '../screens/HomeScreens/Payment/PaymentCardDetails';
+import BundleSummary from '../screens/HomeScreens/Payment/BundleSummary';
+
 
 const AuthNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -27,7 +32,7 @@ const AuthNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="HomeOne">
+        initialRouteName="bundlesummary">
         <Stack.Screen name="createaccount" component={CreateAccount} />
         <Stack.Screen name="splashone" component={SplashOne} />
         <Stack.Screen name="splashtwo" component={SplashTwo} />
@@ -47,6 +52,12 @@ const AuthNavigator = () => {
         <Stack.Screen name="homenocontent" component={HomeNoContent} />
         <Stack.Screen name="HomeCurrentBundle" component={HomeCurrentBundle} />
         <Stack.Screen name="HomeOne" component={HomeOne} />
+        <Stack.Screen name="notificationsettings" component={NotificationSettings} />
+        <Stack.Screen name="bundlesummary" component={BundleSummary} />
+
+
+        
+        <Stack.Screen name="paymentcarddetails" component={PaymentCardDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

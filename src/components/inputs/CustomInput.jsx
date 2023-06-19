@@ -6,7 +6,7 @@ import { Font } from '../../utils/fonts';
 
 const CustomInput = props => {
   return (
-    <View style={styles.InputBox}>
+    <View style={[styles.InputBox,props.RestyleBox]}>
       <TextInput
         // onFocus={props.onFocus}
         textContentType={props.textContentType}
@@ -17,7 +17,7 @@ const CustomInput = props => {
         numberOfLines={props.numberOfLines}
         placeholder={props.placeholder}
         placeholderTextColor={Colors.Grey}
-        style={[styles.InputStyles, props.Gapp, props.restyle]}
+        style={[styles.InputStyles, props.Gapp, props.RestyleText]}
         secureTextEntry={props.secureTextEntry}
         keyboardType={props.keyboardType}
         textAlignVertical={props.textAlignVertical}
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   InputStyles: {
     width: '100%',
     height: '100%',
-    color: Colors.InputText,
+    color: Colors.Black,
     // paddingHorizontal: moderateScale(5),
     fontFamily: Font.CamptonBook
   },

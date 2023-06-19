@@ -11,9 +11,9 @@ const CustSwitch = props => {
   return (
     <View style={props.restyleSwitch}>
          <Switch
-        trackColor={{false: Colors.White, true: Colors.White}}
-        thumbColor='green'
-        ios_backgroundColor={ Colors.White}
+        trackColor={props.trackColor}
+        thumbColor= {props.thumbColor}
+        // ios_backgroundColor={ Colors.White}
         onValueChange={toggleSwitch}
         value={isEnabled}
       />

@@ -16,7 +16,13 @@ const AutoRenewal = props => {
           marginBottom:verticalScale(5),
         }}>
         <Text style={styles.Heading}>Enable auto-renewal</Text>
-        <CustSwitch />
+        <CustSwitch 
+
+        trackColor = {{false: Colors.White, true: Colors.White}}
+        thumbColor = {'green'}
+        
+        
+        />
       </View>
       <View style={{marginBottom:verticalScale(10)}}>
         <Text style={styles.Details}>{props.details}</Text>

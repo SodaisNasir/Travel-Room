@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, SafeAreaView, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView, ScrollView, StatusBar} from 'react-native';
 import React from 'react';
 import Header from '../../../components/headers/Header';
 import UpperBox from '../../../components/box/UpperBox';
@@ -11,6 +11,10 @@ import StyledBox from '../../../components/box/StyledBox';
 const ViewAllCountries = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Colors.White}}>
+      {/* <StatusBar
+      backgroundColor={'transparent'}
+      translucent
+      /> */}
       <Header
         title={'France Plans'}
         description={'Choose a data bundle to use in France'}
@@ -66,7 +70,7 @@ const ViewAllCountries = () => {
           </View>
 
           <View style={{marginVertical: verticalScale(15)}}>
-            <ViewAllContent />
+            <ViewAllContent showmore = {true} />
           </View>
 
           

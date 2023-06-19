@@ -1,13 +1,13 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Colors} from '../../utils/colors';
-import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
+import {verticalScale, scale, moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import { Font } from '../../utils/fonts';
 
 const Header = props => {
   return (
-    <View style={{height: verticalScale(210), backgroundColor: Colors.Main}}>
-      <View style={{flexDirection: 'row'}}>
+    <View style={[{height: verticalScale(210), backgroundColor: Colors.Main},props.RestyleHeader]}>
+      <View style={{flexDirection: 'row',paddingTop:moderateVerticalScale(10)}}>
         <View style={{flex: 2}}>
           <View
             style={{
@@ -49,12 +49,12 @@ const Header = props => {
         </View>
       </View>
 
-      <View style={{paddingHorizontal:moderateScale(25)}}>
+      <View style={[{paddingHorizontal:moderateScale(25)}]}>
         <View>
           <Text style={{fontFamily:Font.Campton700,fontSize:scale(20),color:Colors.White}}>{props.title}</Text>
         </View>
 
-        <View style={{paddingVertical:verticalScale(25)}}>
+        <View style={[{paddingVertical:verticalScale(20)},props.FontView]}>
         <Text style={{fontFamily:Font.Campton500,fontSize:scale(14),color:Colors.White}}>{props.description}</Text>
         </View>
       </View>

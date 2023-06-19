@@ -8,12 +8,13 @@ import {Font} from '../../utils/fonts';
 import * as Progress from 'react-native-progress';
 import AutoRenewal from '../box/AutoRenewal';
 import CustomButton from '../buttons/CustomButton';
-const ActiveBundleContent = () => {
+const BundleSummaryContent = () => {
   return (
     <View style={{}}>
       <StyledBox
         RestyleMainBox={{
-          height: verticalScale(430),
+        //   height: verticalScale(430),
+        paddingBottom : verticalScale(25),
           paddingHorizontal: moderateScale(20),
           borderBottomLeftRadius: 0,
           borderBottomRightRadius: 0,
@@ -52,7 +53,7 @@ const ActiveBundleContent = () => {
                     fontFamily: Font.CamptonBook,
                     fontSize: scale(12),
                   }}>
-                  Standard
+                  Change
                 </Text>
               </View>
             </StyledBox>
@@ -73,54 +74,35 @@ const ActiveBundleContent = () => {
               }}>
               United Kingdom
             </Text>
-            <View style={{marginTop: verticalScale(5)}}>
-              <Text
-                style={{
-                  fontFamily: Font.CamptonBook,
-                  fontSize: scale(12),
-                  color: Colors.Black,
-                }}>
-                5 GB . 30 Days
-              </Text>
-            </View>
+            
           </View>
 
           <View style={{}}>
-            <View style={{alignItems: 'center'}}>
+            <View style={{}}>
               <Text
                 style={{
                   fontFamily: Font.Campton700,
                   fontSize: scale(18),
                   color: Colors.Black,
+                  textAlign:'right'
                 }}>
                 -£25.00
               </Text>
             </View>
+            <View style={{marginTop: verticalScale(5),alignItems:'center'}}>
+              <Text
+                style={{
+                  fontFamily: Font.CamptonBook,
+                  fontSize: scale(16),
+                  color: Colors.Black,
+                }}>
+                5 GB . 7 Days
+              </Text>
+            </View>
           </View>
         </View>
-        <View
-          style={{
-            // height: verticalScale(40),
-            marginTop: verticalScale(18),
 
-            transform: [{rotate: '180deg'}],
-          }}>
-          <Progress.Bar
-            borderRadius={scale(5)}
-            style={{marginTop: verticalScale(5)}}
-            progress={0.7}
-            animated={true}
-            width={null}
-            color={Colors.Main}
-            // borderColor={Colors.Grey}
-            borderColor={Colors.ProgressColorBorder}
-            borderWidth={1}
-            unfilledColor={Colors.ProgressColor}
-            height={verticalScale(10)}
-          />
-        </View>
-
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -128,98 +110,69 @@ const ActiveBundleContent = () => {
           }}>
           <Text style={styles.Expire}>4G Data</Text>
           <Text style={styles.ExpireDays}>750 MB of 5 GB Left</Text>
-        </View>
+        </View> */}
 
-        <View style={{marginTop: verticalScale(30)}}>
-          <Text
-            style={{
-              fontFamily: Font.CamptonBook,
-              color: Colors.Black,
-              fontSize: scale(12),
-            }}>
-            Where can I use this bundle?
-          </Text>
-          <View
-            style={{
-              height: verticalScale(40),
-              marginTop: verticalScale(5),
-            }}>
-            <View style={{transform: [{rotate: '180deg'}]}}>
-              <Progress.Bar
-                style={{marginBottom: verticalScale(10)}}
-                progress={0.7}
-                animated={true}
-                width={null}
-                color={Colors.Main}
-                // borderColor={Colors.Grey}
-                borderColor="transparent"
-                unfilledColor={Colors.ProgressColor}
-                height={verticalScale(3)}
-              />
-            </View>
-            <View
+        <View style={{flexDirection: 'row'}}>
+          <View style={{marginTop: verticalScale(30)}}>
+            <Text
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: verticalScale(5),
+                fontFamily: Font.CamptonBook,
+                color: Colors.Black,
+                fontSize: scale(14),
               }}>
-              <Text style={styles.Expire}>Expires in</Text>
-              <Text style={styles.ExpireDays}>7 Days</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{marginTop: verticalScale(18)}}>
-          <Text style={styles.ExpirationPeriod}>Expiration Period</Text>
-          <View style={{marginTop: verticalScale(2)}}>
-            <Text style={styles.Expire}>30 days after activation.</Text>
-          </View>
-        </View>
-
-        <View style={{marginTop: verticalScale(18)}}>
-          <Text style={styles.ExpirationPeriod}>Activation</Text>
-          <View style={{marginTop: verticalScale(2)}}>
-            <Text style={styles.Expire}>
-              Bundle must be actrvated wtthin 30 days. Vour bunoe Wi' actrvate
-              automatically once you correct to a netvvork in vow chosen
-              destination
+              Where can I use this bundle?
             </Text>
+          </View>
+
+          <View style={{flex: 1, backgroundColor: 'yellow'}}></View>
+        </View>
+
+        <View style={{marginTop: verticalScale(18)}}>
+          <Text style={styles.BigText}>Activation</Text>
+          <View style={{marginTop: verticalScale(10),paddingRight:moderateScale(15)}}>
+            <Text style={[styles.Expire,{textAlign:'left'}]}>
+              This Bundle must be activated within 30 days. Your bundle will
+              activate automatically once you connecct to a network in your
+              chosen destination
+            </Text>
+          </View>
+        </View>
+
+        <View style={{marginTop: verticalScale(18)}}>
+          <Text style={styles.BigText}>How long is my bundle valid?</Text>
+          <View style={{marginTop: verticalScale(10)}}>
+            <Text style={styles.Expire}>7 days from activation</Text>
           </View>
         </View>
       </StyledBox>
       <View>
         <AutoRenewal
           details={
-            "By selecting auto-renewal your bundle will automatically renew once you save used your bundle must be activated within 30 days. Your bundle will activate automatically once you connect to a network in your chosen destination"
+            'By selecting auto-renewal your bundle will automatically renew once you save used your bundle must be activated within 30 days. Your bundle will activate automatically once you connect to a network in your chosen destination'
           }
         />
       </View>
-
-        
-    
-
-
     </View>
   );
 };
 
-export default ActiveBundleContent;
+export default BundleSummaryContent;
 
 const styles = StyleSheet.create({
   Expire: {
     fontFamily: Font.CamptonBook,
-    color: Colors.GreyText,
-    fontSize: scale(12),
+    color: Colors.Black,
+    fontSize: scale(14),
   },
   ExpireDays: {
     fontFamily: Font.CamptonBook,
     color: Colors.Black,
     fontSize: scale(12),
   },
-  ExpirationPeriod: {
+  BigText: {
     fontFamily: Font.Campton700,
     color: Colors.Black,
-    fontSize: scale(14),
+    fontSize: scale(18),
   },
   RedBox: {
     height: verticalScale(120),
