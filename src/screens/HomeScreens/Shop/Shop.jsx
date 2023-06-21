@@ -7,21 +7,32 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState,useCallback} from 'react';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import Header from '../../../components/headers/Header';
 import ZoneContent from '../../../components/content/ZoneContent';
 import CountryContent from '../../../components/content/CountryContent';
 import {Font} from '../../../utils/fonts';
 import {Colors} from '../../../utils/colors';
+import BottomTab from '../../../navigation/BottomTab';
+import { useFocusEffect } from '@react-navigation/native';
+import UpperBox from '../../../components/box/UpperBox';
 
-const Shop = () => {
+const Shop = ({navigation}) => {
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
   
   const [menu, setMenu] = useState('country');
 
   
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1,backgroundColor:Colors.White}}>
       <ScrollView>
         <Header
           title={'Choose Destination'}
@@ -29,6 +40,7 @@ const Shop = () => {
             'Select the country or zone where you want to use your Travel Roam bundle.'
           }
         />
+        <UpperBox restyleUpperBox={{backgroundColor:Colors.Main}} />
         <View style={{paddingHorizontal: moderateScale(25)}}>
           <View
             style={[
@@ -106,7 +118,10 @@ const Shop = () => {
             }}
           /> */}
         </View>
+
+        <View  style= {{height:verticalScale(70)}}/>
       </ScrollView>
+      <BottomTab shop = {true}/>
     </SafeAreaView>
   );
 };

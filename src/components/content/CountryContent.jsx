@@ -1,10 +1,12 @@
-import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import {StyleSheet, Text, View, FlatList, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import {Colors} from '../../utils/colors';
 import {Font} from '../../utils/fonts';
+import { useNavigation } from '@react-navigation/native';
 
 const CountryContent = () => {
+  const navigation = useNavigation()
   DATA = [
     {
       id: 1,
@@ -52,7 +54,8 @@ const CountryContent = () => {
         </View>
       </View>
 
-      <View
+      <TouchableOpacity
+       onPress = {()=> navigation.navigate('viewallcountries')}
         style={{
           alignSelf: 'center',
           width: scale(25),
@@ -63,7 +66,7 @@ const CountryContent = () => {
           resizeMode="contain"
           style={{height: '100%', width: '100%'}}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 

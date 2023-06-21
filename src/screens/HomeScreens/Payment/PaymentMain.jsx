@@ -9,15 +9,27 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
-import React, {useState} from 'react';
+import React, {useState,useCallback} from 'react';
 import {Colors} from '../../../utils/colors';
 import {Font} from '../../../utils/fonts';
 import StyledBox from '../../../components/box/StyledBox';
 import CustomButton from '../../../components/buttons/CustomButton';
 import PaymentHeader from '../../../components/headers/PaymentHeader';
 import UpperBox from '../../../components/box/UpperBox';
+import { useFocusEffect } from '@react-navigation/native';
+import BottomTab from '../../../navigation/BottomTab';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const PaymentMain = () => {
+
+const PaymentMain = ({navigation}) => {
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
   const [backgroundColor, setbackgroundColor] = useState(Colors.InputColor);
   const [textColor, settextColor] = useState(Colors.Black);
   //   const [select, setSelect] = useState(true);
@@ -36,7 +48,7 @@ const PaymentMain = () => {
             CurveSize={{height: verticalScale(15)}}
             UpperInnerBox={{
               backgroundColor: Colors.Main,
-              width: scale(22),
+              width: 24,
             }}
             RestyleMainBox={{
               height: verticalScale(25),
@@ -46,9 +58,27 @@ const PaymentMain = () => {
               borderBottomLeftRadius: scale(4),
               borderBottomRightRadius: scale(4),
               backgroundColor: Colors.Main,
-              width: scale(36),
+              width: 40,
             }}
-            Triangle={{borderTopColor: Colors.Main}}></StyledBox>
+            Triangle={{borderTopColor: Colors.Main}}>
+
+              <TouchableOpacity 
+              onPress={()=>navigation.navigate('paymentoptions')}
+              style={{flex:1, bottom:scale(5),alignItems:'center',justifyContent:'center'}}>
+                <AntDesign
+                 name={'plus'}
+                 size={scale(18)}
+                 style={{
+                  alignItems:'center',
+                  justifyContent:'center',
+                  alignSelf:'center',
+                 
+                 }}
+                 color={Colors.White}
+                
+                />
+              </TouchableOpacity>
+            </StyledBox>
         </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -152,7 +182,7 @@ const PaymentMain = () => {
                   CurveSize={{height: verticalScale(14)}}
                   UpperInnerBox={{
                     backgroundColor: Colors.Main,
-                    width: scale(62),
+                    width:62,
                   }}
                   RestyleMainBox={{
                     height: verticalScale(65),
@@ -162,10 +192,11 @@ const PaymentMain = () => {
                     borderBottomLeftRadius: scale(4),
                     borderBottomRightRadius: scale(4),
                     backgroundColor: Colors.Main,
-                    width: scale(75),
+                    width: 77,
                   }}
                   Triangle={{borderTopColor: Colors.Main}}>
-                  <View
+                  <TouchableOpacity
+                  onPress={()=> navigation.navigate('plandetails')}
                     style={{
                       flex: 1,
                       justifyContent: 'flex-end',
@@ -173,7 +204,7 @@ const PaymentMain = () => {
                     <Text style={styles.BoxText}>DEC 5</Text>
 
                     <Text style={styles.BoxTextTwo}>£50</Text>
-                  </View>
+                  </TouchableOpacity>
                 </StyledBox>
 
                 <TouchableOpacity
@@ -183,7 +214,7 @@ const PaymentMain = () => {
                     CurveSize={{height: verticalScale(15)}}
                     UpperInnerBox={{
                       backgroundColor: backgroundColor,
-                      width: scale(61),
+                      width: 61,
                     }}
                     RestyleMainBox={{
                       height: verticalScale(35),
@@ -191,7 +222,7 @@ const PaymentMain = () => {
                       borderBottomLeftRadius: scale(4),
                       borderBottomRightRadius: scale(4),
                       backgroundColor: backgroundColor,
-                      width: scale(75),
+                      width: 77,
                     }}
                     Triangle={{borderTopColor: backgroundColor}}>
                     <View
@@ -215,7 +246,7 @@ const PaymentMain = () => {
                     CurveSize={{height: verticalScale(15)}}
                     UpperInnerBox={{
                       backgroundColor: backgroundColor,
-                      width: scale(61),
+                      width: 61,
                     }}
                     RestyleMainBox={{
                       height: verticalScale(45),
@@ -223,7 +254,7 @@ const PaymentMain = () => {
                       borderBottomLeftRadius: scale(4),
                       borderBottomRightRadius: scale(4),
                       backgroundColor: backgroundColor,
-                      width: scale(75),
+                      width: 77,
                     }}
                     Triangle={{borderTopColor: backgroundColor}}>
                     <View
@@ -242,10 +273,10 @@ const PaymentMain = () => {
 
                 <View style={{justifyContent: 'flex-end'}}>
                   <StyledBox
-                    CurveSize={{height: verticalScale(15)}}
+                    CurveSize={{height: verticalScale(16)}}
                     UpperInnerBox={{
                       backgroundColor: Colors.InputColor,
-                      width: scale(61),
+                      width: 61,
                     }}
                     RestyleMainBox={{
                       height: verticalScale(55),
@@ -253,7 +284,7 @@ const PaymentMain = () => {
                       borderBottomLeftRadius: scale(4),
                       borderBottomRightRadius: scale(4),
                       backgroundColor: Colors.InputColor,
-                      width: scale(75),
+                      width:77,
                     }}
                     Triangle={{borderTopColor: Colors.InputColor}}>
                     <View
@@ -275,7 +306,7 @@ const PaymentMain = () => {
                     CurveSize={{height: verticalScale(15)}}
                     UpperInnerBox={{
                       backgroundColor: Colors.InputColor,
-                      width: scale(61.2),
+                      width:61.2,
                     }}
                     RestyleMainBox={{
                       height: verticalScale(25),
@@ -283,7 +314,7 @@ const PaymentMain = () => {
                       borderBottomLeftRadius: scale(4),
                       borderBottomRightRadius: scale(4),
                       backgroundColor: Colors.InputColor,
-                      width: scale(75),
+                      width: 77,
                     }}
                     Triangle={{borderTopColor: Colors.InputColor}}>
                     <View
@@ -372,8 +403,8 @@ const PaymentMain = () => {
                     style={{
                       backgroundColor: Colors.InputColor,
                       borderRadius: scale(50),
-                      width: scale(37),
-                      height: verticalScale(38),
+                      width: scale(35),
+                      height: verticalScale(35),
                       alignItems: 'center',
                     }}>
                     <View
@@ -416,9 +447,11 @@ const PaymentMain = () => {
           
           </View>
 
-          <View style={{height:verticalScale(40)}}/>
+          <View style={{height:verticalScale(70)}}/>
         </View>
+      
       </ScrollView>
+      <BottomTab payment = {true}/>
     </SafeAreaView>
   );
 };

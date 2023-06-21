@@ -71,11 +71,12 @@ const CardsContent = () => {
         <Text style={styles.NoPayTextTwo}>payment card added.</Text>
         <Text style={styles.NoPayTextTwo}>Tap below to add a new</Text>
         <CustomButton
-          text = {'ADD NEW'}
+          text = {'Add New'}
           containerRestyle={{
             backgroundColor: Colors.Main,
             width:'35%',
             marginTop: verticalScale(20),
+            borderRadius: scale(4)
             // height: verticalScale(60)
           }}
         />

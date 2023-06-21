@@ -6,24 +6,32 @@ import {
     View,
     Image,
     TouchableOpacity,
+    Dimensions,
+    StatusBar
 } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
-import React from 'react';
+import { scale, verticalScale, moderateScale, } from 'react-native-size-matters';
+import React, {useEffect} from 'react';
 import CustomButton from '../../components/buttons/CustomButton';
 import { Colors } from '../../utils/colors';
 import Swiper from 'react-native-swiper';
 import { Font } from '../../utils/fonts';
 
 const SplashOne = ({navigation}) => {
+    
+    
     return (
         <SafeAreaView style={{ flex: 1 }}>
+             {/* <StatusBar
+      backgroundColor={'transparent'}
+      translucent
+      /> */}
             <ImageBackground
-                imageStyle=
-                {{ opacity: 0.6, backgroundColor: 'black' }}
+                // imageStyle=
+                // {{ opacity: 0.6, backgroundColor: 'black' }}
                 source={require('../../assets/images/splashone.png')}
                 resizeMode="cover"
-                style={{ flex: 1 }}>
-                <View style={{ flex: 1}}>
+                style={{ flex: 1 , height: Dimensions.get('screen').height}}>
+                <View style={{ flex: 1, }}>
                     <View
                         style={{ flex: 2.4, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={{ height: verticalScale(150), width: scale(290) }}>
@@ -35,7 +43,7 @@ const SplashOne = ({navigation}) => {
                         </View>
                     </View>
 
-                    <View style={{ flex: 2.5}}>
+                    <View style={{ flex: 2.8}}>
                         <Swiper style={styles.wrapper} showsButtons={false}
                             activeDotColor={Colors.Main}
                             dotColor='lightgrey'
@@ -163,7 +171,8 @@ const styles = StyleSheet.create({
     texttwo: {
         color: '#fff',
         fontSize: scale(16),
-        fontFamily:Font.CamptonBook
+        fontFamily:Font.CamptonBook,
+        textAlign:'center'
     },
     // hexagon: {
     //     width: 100,

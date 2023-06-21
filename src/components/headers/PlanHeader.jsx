@@ -4,9 +4,11 @@ import {moderateScale, verticalScale,scale} from 'react-native-size-matters';
 import {Colors} from '../../utils/colors';
 import StyledBox from '../box/StyledBox';
 import { Font } from '../../utils/fonts';
+import { useNavigation } from '@react-navigation/native';
 // import ReactNativeAnimatedSearchbox from 'react-native-animated-searchbox';
 
 const PlanHeader = (props) => {
+  const navigation =  useNavigation();
 
 //   openSearchBox = () => refSearchBox.open();
 
@@ -14,8 +16,9 @@ const PlanHeader = (props) => {
 //   closeSearchBox = () => refSearchBox.close();
   return (
     <View style={styles.MainBox}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <View
+      <View style={{flexDirection: 'row', justifyContent: 'space-between',marginTop:verticalScale(5)}}>
+        <TouchableOpacity
+        onPress={()=> navigation.goBack()}
           style={{
             height: verticalScale(50),
             width: scale(75),
@@ -27,7 +30,7 @@ const PlanHeader = (props) => {
             source={require('../../assets/images/cancel.png')}
             resizeMode="contain"
           />
-        </View>
+        </TouchableOpacity>
 
         <View>
           {/* <ReactNativeAnimatedSearchbox
@@ -44,7 +47,7 @@ const PlanHeader = (props) => {
                 <StyledBox
                 CurveSize={{height: verticalScale(15)}}
                 UpperInnerBox={{
-                  backgroundColor: props.countryColor,
+                  backgroundColor: Colors.White,
                   width: '44.1%',
                 // width:scale(49)
                 
@@ -53,16 +56,16 @@ const PlanHeader = (props) => {
                   height: verticalScale(25),
                 paddingHorizontal: moderateScale(0),
                   paddingBottom: moderateScale(5),
-                  borderBottomLeftRadius: scale(4),
-                  borderBottomRightRadius: scale(4),
-                  backgroundColor: props.countryColor,
+                  borderBottomLeftRadius: scale(0),
+                  borderBottomRightRadius: scale(0),
+                  backgroundColor: Colors.White,
                 //   width:scale(63)
                   width: '55%',
                 }}
-                Triangle={{borderTopColor: props.countryColor}}
+                Triangle={{borderTopColor: Colors.White}}
                 >
                     <View style={{alignItems:'center'}}>
-                        <Text style={styles.HeaderText}>
+                        <Text style={[styles.HeaderText,{color:Colors.Main}]}>
                             Country
                         </Text>
                     </View>
@@ -75,21 +78,22 @@ const PlanHeader = (props) => {
                 <StyledBox
                 CurveSize={{height: verticalScale(15)}}
                 UpperInnerBox={{
-                  backgroundColor: props.regionColor,
+                  backgroundColor: Colors.Main,
                   width: '43.4%',
+               
                 // width:scale(49)
                 }}
                 RestyleMainBox={{
                   height: verticalScale(25),
                   //   paddingHorizontal: moderateScale(20),
                   paddingBottom: moderateScale(5),
-                  borderBottomLeftRadius: scale(4),
-                  borderBottomRightRadius: scale(4),
-                  backgroundColor: props.regionColor,
+                  borderBottomLeftRadius: scale(0),
+                  borderBottomRightRadius: scale(0),
+                  backgroundColor: Colors.Main,
                 //   width:scale(63)
                   width: '55%',
                 }}
-                Triangle={{borderTopColor: props.regionColor}}
+                Triangle={{borderTopColor: Colors.Main}}
                 
                 >
                    <View style={{alignItems:'center'}}>
@@ -115,8 +119,8 @@ const PlanHeader = (props) => {
                   height: verticalScale(25),
                     // paddingHorizontal: moderateScale(20),
                   paddingBottom: moderateScale(5),
-                  borderBottomLeftRadius: scale(4),
-                  borderBottomRightRadius: scale(4),
+                  borderBottomLeftRadius: scale(0),
+                  borderBottomRightRadius: scale(0),
                   backgroundColor: props.worldColor,
                 //   width:scale(63)
                   width: '55%',

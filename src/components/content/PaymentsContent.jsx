@@ -47,10 +47,10 @@ const PaymentContent = () => {
 
   const Item = ({ data }) => (
     <>
-      <View style={{ marginVertical: verticalScale(10) }}>
+      <View style={{ marginVertical: verticalScale(15) }}>
         <Text
           style={{
-            fontFamily: Font.CamptonBook,
+            fontFamily: Font.Campton500,
             fontSize: scale(18),
             color: Colors.Black,
           }}>
@@ -58,7 +58,7 @@ const PaymentContent = () => {
         </Text>
       </View>
       <StyledBox >
-        <View style={{ flex: 1,  bottom:scale(10),justifyContent:'flex-start'}}>
+        <View style={{ flex: 1,  bottom:scale(10),justifyContent:'flex-start',}}>
           <View
             style={{
               // marginTop: verticalScale(10),
@@ -78,7 +78,7 @@ const PaymentContent = () => {
           </View>
         </View>
 
-        <View style={{ flexDirection: 'row', marginBottom: verticalScale(10) }}>
+        <View style={{ flexDirection: 'row', marginTop: verticalScale(10),paddingBottom:moderateScale(10) }}>
           <View
             style={{
               height: verticalScale(20),

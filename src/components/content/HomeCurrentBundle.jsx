@@ -14,7 +14,7 @@ const HomeCurrentBundle = () => {
 
         CurveSize = {{height:verticalScale(15)}}
           RestyleMainBox={{
-            height: verticalScale(205),
+            height: verticalScale(210),
             paddingHorizontal: moderateScale(20),
             borderBottomLeftRadius: 0,
             borderBottomRightRadius: 0,

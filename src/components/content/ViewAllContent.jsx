@@ -5,8 +5,12 @@ import {Colors} from '../../utils/colors';
 import {moderateScale, verticalScale, scale} from 'react-native-size-matters';
 import {Font} from '../../utils/fonts';
 import CustomButton from '../buttons/CustomButton';
+import { useNavigation } from '@react-navigation/native';
+
 
 const ViewAllContent = props => {
+
+  const navigation = useNavigation();
 
   DATA = [
     {
@@ -144,10 +148,10 @@ const ViewAllContent = props => {
               <View
                 style={{flexDirection: 'row'}}>
                 <View>
-                  <Text style ={styles.ParaText}>Where can I use this bundle?</Text>
+                  <Text style ={styles.ParaText}>Where can I use this bundle? </Text>
                 </View>
 
-                <View style={{backgroundColor: 'yellow',flex:1}}></View>
+                <View style={{flex:1}}></View>
               </View>
 
               <View style={{marginVertical : verticalScale(15)}}>
@@ -188,6 +192,7 @@ const ViewAllContent = props => {
             }}>
             <CustomButton
               text={'Select'}
+              onPress = {()=> navigation.navigate('bundlesummary')}
               containerRestyle={{
                 borderRadius: scale(4),
                 width: '45%',
@@ -196,7 +201,8 @@ const ViewAllContent = props => {
             />
 
             <CustomButton
-              text={'Select'}
+              icon = {true}
+              iconName = {more == data.id ? 'arrow-up': 'arrow-down'}
               onPress={() => handlePress(data.id)}
               containerRestyle={{
                 borderRadius: scale(4),

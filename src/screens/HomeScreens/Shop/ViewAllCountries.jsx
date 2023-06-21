@@ -32,7 +32,7 @@ const ViewAllCountries = () => {
             <View style={{justifyContent:'center'}}>
               <Text
                 style={{
-                  fontFamily: Font.CamptonBook,
+                  fontFamily: Font.Campton500,
                   fontSize: scale(18),
                   color: Colors.Black,
                 }}>
@@ -44,7 +44,7 @@ const ViewAllCountries = () => {
                Main = {{width:'100%',alignItems:'center'}}
                 CurveSize={{height: verticalScale(12),width:'50%'}}
                 UpperInnerBox={{
-                  width: '84.2%',
+                  width: '85.4%',
                   backgroundColor: Colors.IntroductoryBox,
                 }}
                 RestyleMainBox={{

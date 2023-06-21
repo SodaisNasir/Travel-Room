@@ -1,14 +1,38 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {scale, verticalScale} from 'react-native-size-matters';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import React from 'react';
 import {Colors} from '../../utils/colors';
-import { Font } from '../../utils/fonts';
+import {Font} from '../../utils/fonts';
 
-const CustomButton = (props) => {
+const CustomButton = props => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={[styles.containerStyle,props.containerRestyle]}>
-      <Text style={[styles.font,props.fontStyle]}>{props.text}</Text>
+    <TouchableOpacity
+      onPress={props.onPress}
+      style={[styles.containerStyle, props.containerRestyle]}>
+      <Text style={[styles.font, props.fontStyle]}>{props.text}</Text>
+      {props.icon ? (
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <SimpleLineIcons
+            name={props.iconName}
+            size={scale(20)}
+            style={{alignSelf: 'center', bottom: scale(10)}}
+            color={Colors.Main}
+          />
+        </View>
+      ) : null}
+
+      {props.iconleft ? (
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <SimpleLineIcons
+            name={'arrow-left'}
+            size={scale(20)}
+            style={{alignSelf: 'center', bottom: scale(10)}}
+            color={Colors.Main}
+          />
+        </View>
+      ) : null}
     </TouchableOpacity>
   );
 };
@@ -25,9 +49,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.Black,
     height: verticalScale(52),
     // flexDirection: 'row',
-    
-   
-  
   },
 
   font: {
@@ -35,6 +56,6 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
     // textTransform: 'capitalize',
     fontFamily: Font.Campton700,
-    color:Colors.White
+    color: Colors.White,
   },
 });

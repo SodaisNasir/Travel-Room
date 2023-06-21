@@ -1,10 +1,13 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Colors} from '../../utils/colors';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import {Font} from '../../utils/fonts';
+import { useNavigation } from '@react-navigation/native';
 
 const PaymentHeader = props => {
+
+  const navigation = useNavigation()
   return (
     <View
       style={[
@@ -18,7 +21,9 @@ const PaymentHeader = props => {
           paddingHorizontal: moderateScale(20),
         }}>
         <View style={{marginVertical:verticalScale(15)}}>
-          <View
+          <TouchableOpacity
+
+          onPress = {()=> navigation.goBack()}
             style={{
               height: verticalScale(50),
               width: scale(75),
@@ -31,7 +36,7 @@ const PaymentHeader = props => {
               source={require('../../assets/images/cancel.png')}
               resizeMode="contain"
             />
-          </View>
+          </TouchableOpacity>
 
           <View style={{marginTop:verticalScale(15)}}>
             <View>

@@ -1,13 +1,23 @@
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import React from 'react'
+import React , { useCallback }from 'react'
 import { Colors } from '../../../utils/colors'
 import NotificationHeader from '../../../components/headers/NotificationHeader'
 import UpperBox from '../../../components/box/UpperBox'
 import { moderateScale, verticalScale } from 'react-native-size-matters'
 import HomeCurrentBundle from '../../../components/content/HomeCurrentBundle'
 import GetBundle from '../../../components/content/GetBundle'
+import BottomTab from '../../../navigation/BottomTab'
+import { useFocusEffect } from '@react-navigation/native';
 
-const HomeOne = () => {
+const HomeOne = ({navigation}) => {
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
   return (
     <SafeAreaView style={{flex:1,backgroundColor: Colors.White}}>
         <NotificationHeader RestyleHeader = {{backgroundColor: Colors.Black}}/>
@@ -26,7 +36,7 @@ const HomeOne = () => {
 
      
        
-
+      <BottomTab home = {true}/>
     </SafeAreaView>
   )
 }

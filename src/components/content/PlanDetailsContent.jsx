@@ -4,8 +4,10 @@ import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {Font} from '../../utils/fonts';
 import {Colors} from '../../utils/colors';
 import CustomButton from '../buttons/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
 const PlanDetailsContent = () => {
+  const navigation = useNavigation();
   return (
     <View style={{paddingHorizontal: moderateScale(15)}}>
       <View
@@ -74,6 +76,7 @@ const PlanDetailsContent = () => {
 
         <View style={{marginVertical: verticalScale(10)}}>
           <CustomButton
+          onPress = {()=> navigation.navigate('viewallcountries')}
             containerRestyle={{width: '100%'}}
             text={'Plan Details'}
           />

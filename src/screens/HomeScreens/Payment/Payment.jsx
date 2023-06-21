@@ -7,6 +7,7 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { Colors } from '../../../utils/colors';
 import { Font } from '../../../utils/fonts';
 import UpperBox from '../../../components/box/UpperBox';
+import BottomTab from '../../../navigation/BottomTab';
 
 const Payment = (props) => {
   const [menu, setMenu] = useState('cards');
@@ -92,9 +93,11 @@ const Payment = (props) => {
 
             </>
           )}
+        
         </View>
-        <View style={{ height: verticalScale(40) }} />
+        <View style={{ height: verticalScale(65) }} />
       </ScrollView>
+        <BottomTab payment = {true}/>
     </SafeAreaView>
   );
 };

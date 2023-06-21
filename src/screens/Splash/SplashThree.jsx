@@ -1,10 +1,14 @@
-import { Image, SafeAreaView, StyleSheet, Text, View, ImageBackground } from 'react-native';
-import React from 'react';
+import { Image, SafeAreaView, StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import React , {useEffect}from 'react';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { Colors } from '../../utils/colors';
 
 
-const SplashThree = () => {
+const SplashThree = ({navigation}) => {
+    
+    
+
+        
     return (
         <SafeAreaView style={{ flex: 1,backgroundColor:Colors.Main }}>
             <View style={{ paddingHorizontal: moderateScale(20), flex: 1 }}>
@@ -22,7 +26,7 @@ const SplashThree = () => {
 
                 </View>
 
-                <View style={{ flex: 4.5,  alignItems: 'center', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={()=>navigation.navigate('BottomNavigator')} style={{ flex: 4.5,  alignItems: 'center', justifyContent: 'center' }}>
                     <View style={{ height: verticalScale(300), width: scale(300), marginTop: verticalScale(20) }}>
                         <Image
                             source={require('../../assets/images/gbimage.png')}
@@ -30,7 +34,7 @@ const SplashThree = () => {
                             style={{ height: '100%', width: '100%' }}
                         />
                     </View>
-                </View>
+                </TouchableOpacity>
 
                 <View style={{ flex: 2.2, justifyContent: 'flex-end' }}>
                     <View style={{ height: verticalScale(150), width: scale(300), marginTop: verticalScale(20) }}>

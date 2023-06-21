@@ -15,6 +15,9 @@ const PlanDetails = () => {
         handleCountry={() => setMenu('country')}
         handleRegion={() => setMenu('region')}
         handleWorld={() => setMenu('world')}
+      
+      
+        worldColor={Colors.Main}
       />
       <UpperBox restyleUpperBox={{backgroundColor: Colors.Black}} />
 
@@ -22,11 +25,11 @@ const PlanDetails = () => {
 
       <View style={styles.Container}>
         {menu == 'country' ? (
-          <PlanDetailsContent countryColor={Colors.Main} />
+          <PlanDetailsContent  />
         ) : null}
-        {menu == 'region' ? <ViewAllContent /> : null}
+        {menu == 'region' ? <PlanDetailsContent /> : null}
         {menu == 'world' ? (
-          <PlanDetailsContent worldColor={Colors.Main} />
+          <PlanDetailsContent  />
         ) : null}
       </View>
       </ScrollView>

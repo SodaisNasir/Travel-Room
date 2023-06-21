@@ -81,7 +81,7 @@ const PaymentCardDetails = ({navigation}) => {
         <View
           style={{flex: 0.6,  flexDirection: 'row'}}>
           <CustomButton
-            text={''}
+            iconleft = {true}
             onPress={() => navigation.goBack()}
             containerRestyle={{
               borderRadius: scale(6),

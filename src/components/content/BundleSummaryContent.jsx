@@ -124,7 +124,7 @@ const BundleSummaryContent = () => {
             </Text>
           </View>
 
-          <View style={{flex: 1, backgroundColor: 'yellow'}}></View>
+          <View style={{flex: 1, }}></View>
         </View>
 
         <View style={{marginTop: verticalScale(18)}}>

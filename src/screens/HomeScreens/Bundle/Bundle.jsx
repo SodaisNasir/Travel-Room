@@ -6,7 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState,useCallback} from 'react';
 import NotificationHeader from '../../../components/headers/NotificationHeader';
 import {Colors} from '../../../utils/colors';
 import UpperBox from '../../../components/box/UpperBox';
@@ -15,9 +15,20 @@ import ActiveBundleContent from '../../../components/content/ActiveBundleContent
 import StyledBox from '../../../components/box/StyledBox';
 import {Font} from '../../../utils/fonts';
 import CustomButton from '../../../components/buttons/CustomButton';
+import { useFocusEffect } from '@react-navigation/native';
+import BottomTab from '../../../navigation/BottomTab';
 
-const Bundle = () => {
+const Bundle = ({navigation}) => {
   const [menu, setMenu] = useState('active');
+  
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
 
   return (
     <SafeAreaView style={{backgroundColor: Colors.White, flex: 1}}>
@@ -77,13 +88,15 @@ const Bundle = () => {
 
               <StyledBox
                 RestyleMainBox={{
-                  height: verticalScale(125),
+                  // height: verticalScale(125),
                   paddingHorizontal: moderateScale(20),
                   borderBottomLeftRadius: scale(6),
                   borderBottomRightRadius: scale(6),
                   backgroundColor: Colors.Main,
                 }}
-                UpperInnerBox={{backgroundColor: Colors.Main}}
+                UpperInnerBox={{backgroundColor: Colors.Main,
+                
+                }}
                 Triangle={{borderTopColor: Colors.Main}}>
                 <View style={{bottom: scale(5)}}>
                   <Text
@@ -129,7 +142,10 @@ const Bundle = () => {
 
           <View style={{height: verticalScale(40)}} />
         </View>
+
+        <View style={{height:verticalScale(75)}}/>
       </ScrollView>
+        <BottomTab bundle = {true} />
     </SafeAreaView>
   );
 };
@@ -140,11 +156,14 @@ const styles = StyleSheet.create({
   Container: {
     paddingHorizontal: moderateScale(25),
   },
+  heading:{
+    fontFamily:Font.Campton500
+  },
   boxContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: verticalScale(20),
+    marginTop: verticalScale(5),
     borderWidth: 1,
     borderColor: Colors.Main,
     flexDirection: 'row',

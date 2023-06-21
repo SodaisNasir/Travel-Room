@@ -1,10 +1,13 @@
-import {StyleSheet, Text, View, FlatList,Image} from 'react-native';
+import {StyleSheet, Text, View, FlatList,Image,TouchableOpacity} from 'react-native';
 import React from 'react';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import {Colors} from '../../utils/colors';
 import { Font } from '../../utils/fonts';
+import { useNavigation } from '@react-navigation/native';
 
 const ZoneContent = () => {
+  const navigation = useNavigation();
+  console.log('navigation', navigation)
   DATA = [
     {
       id: 1,
@@ -35,14 +38,17 @@ const ZoneContent = () => {
         <Text style={styles.desc}>{data.desc}</Text>
       </View>
 
-      <View style={{alignSelf:'center', width:scale(25),height:verticalScale(25)}}>
+      <TouchableOpacity
+      
+      onPress={()=> navigation.navigate('viewallcountries')}
+      style={{alignSelf:'center', width:scale(25),height:verticalScale(25)}}>
         <Image
             source = {require('../../assets/images/arrow.png')}
             resizeMode='contain'
             style={{height:'100%', width:'100%'}}
         />
 
-      </View>
+      </TouchableOpacity>
     </View>
   );
 

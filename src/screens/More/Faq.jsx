@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useLayoutEffect, useState,useCallback} from 'react';
 import {
   View,
   Text,
@@ -16,50 +16,63 @@ import NotificationHeader from '../../components/headers/NotificationHeader';
 import {Font} from '../../utils/fonts';
 import StyledBox from '../../components/box/StyledBox';
 import CustomButton from '../../components/buttons/CustomButton';
+import BottomTab from '../../navigation/BottomTab';
+import { useFocusEffect } from '@react-navigation/native';
 
-DATA = [
-  {
-    id: 1,
-    question: 'What is an eSIM?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-  {
-    id: 2,
-    question: 'Does my device support eSIM?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-  {
-    id: 3,
-    question: 'How do I activate my BreatheSIM data bundle?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-  {
-    id: 4,
-    question: 'Where can I use my data bundle?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-  {
-    id: 5,
-    question:
-      'What if I plan to visit muiltiple countries in multiple continents?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-  {
-    id: 6,
-    question: 'How long do I have to use my BreatheSIM data bundle?',
-    answer:
-      'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
-  },
-];
+
 
 const Faq = ({navigation}) => {
+
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
+
+  DATA = [
+    {
+      id: 1,
+      question: 'What is an eSIM?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+    {
+      id: 2,
+      question: 'Does my device support eSIM?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+    {
+      id: 3,
+      question: 'How do I activate my BreatheSIM data bundle?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+    {
+      id: 4,
+      question: 'Where can I use my data bundle?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+    {
+      id: 5,
+      question:
+        'What if I plan to visit muiltiple countries in multiple continents?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+    {
+      id: 6,
+      question: 'How long do I have to use my BreatheSIM data bundle?',
+      answer:
+        'Lorem ipsum is the most well known filler text and comes from various passages of a book from Cicero, written in 45 BC.',
+    },
+  ];
   const [expanded1, setExpanded1] = useState();
-  const [close, setClose] = useState();
+
 
   //     navigation.getParent()?.setOptions({
   //       tabBarStyle: {
@@ -162,8 +175,11 @@ const Faq = ({navigation}) => {
           <View style={{marginVertical: verticalScale(15)}}>
             <CustomButton onPress={()=>navigation.goBack()} text={'Back'} containerRestyle={{width: '80%'}} />
           </View>
+
+          <View style = {{height:verticalScale(50)}} />
         </View>
       </ScrollView>
+      <BottomTab more = {true} />
     </SafeAreaView>
   );
 };

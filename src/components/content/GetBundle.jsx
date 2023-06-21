@@ -12,16 +12,17 @@ const GetBundle = () => {
     <View>
       <View style={{flexDirection: 'row'}}>
         <StyledBox
+        CurveSize = {{height:verticalScale(13)}}
           RestyleMainBox={{
-            height: verticalScale(200),
+            height: verticalScale(210),
             paddingHorizontal: moderateScale(0),
             borderBottomLeftRadius: 0,
             borderBottomRightRadius: 0,
-            width: scale(150),
+            width: 152,
             backgroundColor: Colors.Main,
           }}
           UpperInnerBox={{
-            width: scale(130),
+            width: 137,
             backgroundColor: Colors.Main,
           }}
           Triangle={{

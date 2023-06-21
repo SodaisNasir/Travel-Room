@@ -17,15 +17,8 @@ const SplashTwo = ({navigation}) => {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                     }}>
-                    <View
-                        style={
-                            {
-                                //   marginTop: verticalScale(10),
-                                //   height: verticalScale(150),
-                                //   width: scale(150),
-                            }
-                        }>
-                        <View style={{ height: verticalScale(140), width: scale(220),flex:1 }}>
+                    
+                        <View style={{ height: verticalScale(140), width: scale(220) }}>
                             <Image
                                 source={require('../../assets/images/travelicon.png')}
                                 resizeMode="contain"
@@ -40,7 +33,7 @@ const SplashTwo = ({navigation}) => {
                                 style={{ height: '100%', width: '100%' }}
                             />
                         </View>
-                    </View>
+                 
                 </View>
                 <View style={{ flex: 2}}>
 
@@ -64,7 +57,7 @@ const SplashTwo = ({navigation}) => {
 
                 </View>
 
-                <View style={{ flex: 0.8, paddingTop: verticalScale(10)}}>
+                <View style={{ flex: 0.8, paddingTop: verticalScale(10),justifyContent:'center'}}>
                 <CustomButton
                             containerRestyle={{ backgroundColor: Colors.Black, width: '75%' }}
                             text={'View Bundle'}

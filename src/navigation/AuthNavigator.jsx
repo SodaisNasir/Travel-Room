@@ -12,7 +12,6 @@ import CountryContent from '../components/content/CountryContent';
 import Payment from '../screens/HomeScreens/Payment/Payment';
 import CardsContent from '../components/content/CardsContent';
 import ViewAllContent from '../components/content/ViewAllContent';
-import ViewAllCountries from '../screens/HomeScreens/Shop/ViewAllCountries';
 import Bundle from '../screens/HomeScreens/Bundle/Bundle';
 import PaymentMain from '../screens/HomeScreens/Payment/PaymentMain';
 import Faq from '../screens/More/Faq';
@@ -24,6 +23,7 @@ import AutoRenewal from '../components/box/AutoRenewal';
 import NotificationSettings from '../screens/More/NotificationSettings';
 import PaymentCardDetails from '../screens/HomeScreens/Payment/PaymentCardDetails';
 import BundleSummary from '../screens/HomeScreens/Payment/BundleSummary';
+import BottomTab from './BottomTab';
 
 
 const AuthNavigator = () => {
@@ -32,7 +32,7 @@ const AuthNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName="bundlesummary">
+        initialRouteName="notificationsettings">
         <Stack.Screen name="createaccount" component={CreateAccount} />
         <Stack.Screen name="splashone" component={SplashOne} />
         <Stack.Screen name="splashtwo" component={SplashTwo} />
@@ -44,16 +44,17 @@ const AuthNavigator = () => {
         <Stack.Screen name="countrycontent" component={CountryContent} />
         <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
         <Stack.Screen name="ViewAllContent" component={ViewAllContent} />
-        <Stack.Screen name="viewallcountries" component={ViewAllCountries} />
+        {/* <Stack.Screen name="viewallcountries" component={ViewAllCountries} /> */}
         <Stack.Screen name="bundle" component={Bundle} />
         <Stack.Screen name="paymentmain" component={PaymentMain} />
         <Stack.Screen name="faq" component={Faq} />
         <Stack.Screen name="plandetails" component={PlanDetails} />
         <Stack.Screen name="homenocontent" component={HomeNoContent} />
         <Stack.Screen name="HomeCurrentBundle" component={HomeCurrentBundle} />
-        <Stack.Screen name="HomeOne" component={HomeOne} />
+        <Stack.Screen name="homeone" component={HomeOne} />
         <Stack.Screen name="notificationsettings" component={NotificationSettings} />
         <Stack.Screen name="bundlesummary" component={BundleSummary} />
+        <Stack.Screen name="bottomtab" component={BottomTab} />
 
 
         

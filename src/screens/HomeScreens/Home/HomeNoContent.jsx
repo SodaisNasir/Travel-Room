@@ -1,12 +1,22 @@
 import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
+import React,{useCallback} from 'react';
 import {Colors} from '../../../utils/colors';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import StyledBox from '../../../components/box/StyledBox';
 import CustomButton from '../../../components/buttons/CustomButton';
 import {Font} from '../../../utils/fonts';
+import { useFocusEffect } from '@react-navigation/native';
+import BottomTab from '../../../navigation/BottomTab';
 
-const HomeNoContent = () => {
+const HomeNoContent = ({navigation}) => {
+  useFocusEffect(
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useCallback(() => {
+      navigation.getParent()?.setOptions({
+        tabBarStyle: {display : 'none'}
+      })
+    }),
+  )
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: Colors.White}}>
       <View style={{flex: 1,paddingHorizontal:moderateScale(25)}}>
@@ -85,6 +95,7 @@ const HomeNoContent = () => {
 
               <View style={{marginVertical:verticalScale(15)}}>
                 <CustomButton
+                onPress = {()=> navigation.navigate('homeone')}
                   containerRestyle={{width: '100%'}}
                   text={'Get a Data bundle!'}
                 />
@@ -93,6 +104,8 @@ const HomeNoContent = () => {
           </StyledBox>
         </View>
       </View>
+
+      <BottomTab  home = {true}/>
     </SafeAreaView>
   );
 };

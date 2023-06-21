@@ -23,8 +23,8 @@ const CustomInput = props => {
         textAlignVertical={props.textAlignVertical}
         pattern={props.pattern}
         label={props.label}
-        placeholderStyle={props.placeholderStyle}
-        fontSize={props.fontSize}
+        placeholderStyle={[styles.placeholderText,props.placeholderStyle]}
+        // fontSize={scale(12)}
         maxLength={props.maxLength}
       />
     </View>
@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
     height: '100%',
     color: Colors.Black,
     // paddingHorizontal: moderateScale(5),
-    fontFamily: Font.CamptonBook
+    fontFamily: Font.CamptonBook,
+  },
+  placeholderText:{
+    // fontFamily
+    fontFamily:Font.Campton700
   },
   InputBox: {
     alignSelf: 'center',
